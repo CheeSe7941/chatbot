@@ -1,7 +1,6 @@
-FROM node:18-slim
-WORKDIR / app
-COPY package.json .
-RUN npm install
-COPY app.js .
-CMD ["node","app.js"]
-
+FROM python:3.11-slim
+WORKDIR /app
+COPY app.py .
+RUN pip install flask
+EXPOSE 5000
+CMD ["python", "app.py"]
